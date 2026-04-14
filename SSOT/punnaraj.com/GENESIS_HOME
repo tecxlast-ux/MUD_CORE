@@ -1,0 +1,20 @@
+# GENESIS_HOME
+
+Canonical landing document for the current repository structure.
+
+## Current structure
+
+- `10_MANIFEST/`
+- `20_METHODOLOGY/`
+- `30_DELIVERABLES/`
+- `40_REFERENCE/`
+- `90_ARCHIVE/`
+- `SSOT/{core,FAMILY_CAPITAL_SYSTEM,punnaraj.com}`
+- `docs/ssot/ssot-goldstart/`
+- `index/`
+
+## Notes
+
+- The former nested path under `Family/genesis.punnaraj.com/00_CORE_SYSTEM/` has been flattened.
+- The source-of-truth folder is `SSOT/` (uppercase).
+- The root `index.html` provides a browsable static view of this layout.

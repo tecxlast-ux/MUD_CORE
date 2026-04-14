@@ -1,0 +1,4 @@
+PROGRAM_SCOPE__PUNNARAJ_SYSTEM__v1.0
+
+This is mock project data used to establish a durable and searchable folder structure.
+Includes placeholders for workstream outputs, dependencies, and archival logic.
