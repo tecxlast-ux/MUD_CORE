@@ -1,0 +1,44 @@
+site_name: MUD_CORE
+site_description: Punnaraj Digital Heritage Knowledge Portal
+site_url: https://tecxlast-ux.github.io/MUD_CORE/
+repo_url: https://github.com/tecxlast-ux/MUD_CORE
+repo_name: tecxlast-ux/MUD_CORE
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+
+plugins:
+  - search
+
+docs_dir: docs
+site_dir: site
+use_directory_urls: true
+
+nav:
+  - Home: index.md
+  - Core System:
+      - Manifest:
+          - Master Index: 10_MANIFEST/MASTER_INDEX.md
+          - User Identity: 10_MANIFEST/USER_IDENTITY.md
+          - Security Layer Update: 10_MANIFEST/SECURITY_LAYER_UPDATE.md
+      - Methodology:
+          - Fetch Verify Procedure: 20_METHODOLOGY/FETCH_VERIFY_PROCEDURE.md
+          - Fixed Section Headers: 20_METHODOLOGY/FIXED_SECTION_HEADERS.md
+          - Project Foundation Update: 20_METHODOLOGY/PROJECT_FOUNDATION_UPDATE.md
+      - Deliverables:
+          - Program Scope v1.0: 30_DELIVERABLES/PROGRAM_SCOPE__PUNNARAJ_SYSTEM__v1.0.txt
+      - Reference:
+          - About User: 40_REFERENCE/ABOUT_USER__VISUT_PUNNARAJ_AI.md
+      - Archive:
+          - Nemesis Home: 90_ARCHIVE/NEMESIS_HOME.md
+  - SSOT:
+      - Core README: SSOT/core/README.md
+      - Family Capital System: SSOT/FAMILY_CAPITAL_SYSTEM/README.md
+      - punnaraj.com README: SSOT/punnaraj.com/README.md
+      - Snapshot 2026-02-18 (151650): SSOT/Copilot_20260218_151650.md
+      - Snapshot 2026-02-18 (222216): SSOT/Copilot_20260218_222216.md
