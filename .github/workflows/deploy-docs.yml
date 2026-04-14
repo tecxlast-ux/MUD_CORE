@@ -1,0 +1,57 @@
+name: Deploy MUD_CORE Docs
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mud-core-docs
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install MkDocs dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r portal/requirements.txt
+
+      - name: Prepare portal docs from SSOT folders
+        shell: bash
+        run: |
+          mkdir -p portal/docs
+          rm -rf portal/docs/10_MANIFEST portal/docs/20_METHODOLOGY portal/docs/30_DELIVERABLES portal/docs/40_REFERENCE portal/docs/90_ARCHIVE portal/docs/SSOT portal/docs/00_CORE_SYSTEM portal/docs/ssot portal/docs/Family
+
+          cp -r 10_MANIFEST 20_METHODOLOGY 30_DELIVERABLES 40_REFERENCE 90_ARCHIVE SSOT portal/docs/
+
+          # Optional compatibility for alternate naming conventions.
+          [ -d 00_CORE_SYSTEM ] && cp -r 00_CORE_SYSTEM portal/docs/ || true
+          [ -d ssot ] && cp -r ssot portal/docs/ || true
+          [ -d Family ] && cp -r Family portal/docs/ || true
+
+          # Convert extensionless README files to Markdown filenames for MkDocs.
+          find portal/docs -type f -name README -exec sh -c 'cp "$1" "$1.md"' _ {} \;
+
+      - name: Build MkDocs site
+        run: mkdocs build -f portal/mkdocs.yml --strict
+
+      - name: Deploy to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: portal/site
