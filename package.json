@@ -4,7 +4,11 @@
   "private": true,
   "description": "PUNNARAJ Control Plane v0.1 for the punnaraj/mud Cloudflare Pages repository.",
   "scripts": {
-    "build": "node -e \"console.log('Plain static frontend: root directory is the Cloudflare Pages output.')\"",
+    "build": "npm run validate && npm run build:reference && npm run validate",
+    "build:reference": "python3 scripts/build_reference_layers.py",
+    "build:atlas": "python3 scripts/build_reference_layers.py --layer public",
+    "build:beta": "python3 scripts/build_reference_layers.py --layer beta",
+    "validate:public": "python3 scripts/build_reference_layers.py --validate-only",
     "dev": "npx wrangler pages dev . --port 8788",
     "validate": "python3 scripts/validators/check_repo_structure.py"
   }
