@@ -1,0 +1,11 @@
+{
+  "name": "punnaraj-mud-control-plane",
+  "version": "0.1.0",
+  "private": true,
+  "description": "PUNNARAJ Control Plane v0.1 for the punnaraj/mud Cloudflare Pages repository.",
+  "scripts": {
+    "build": "node -e \"console.log('Plain static frontend: root directory is the Cloudflare Pages output.')\"",
+    "dev": "npx wrangler pages dev . --port 8788",
+    "validate": "python3 scripts/validators/check_repo_structure.py"
+  }
+}

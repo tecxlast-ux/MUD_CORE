@@ -1,12 +1,10 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "mud",
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "magga-113",
+  "pages_build_output_dir": ".",
   "compatibility_date": "2026-05-07",
   "observability": {
     "enabled": true
-  },
-  "assets": {
-    "directory": "."
   },
   "compatibility_flags": [
     "nodejs_compat"
